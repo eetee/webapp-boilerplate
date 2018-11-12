@@ -1,7 +1,7 @@
 import * as envVar from 'env-var';
 
 const config = {
-    node_env: envVar.get('NODE_ENV', 'development'),
+    NODE_ENV: envVar.get('NODE_ENV', 'development').asString(),
     hello: 'world'
 };
 
