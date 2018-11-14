@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = [
     {
@@ -30,10 +31,14 @@ module.exports = [
             index: path.join(__dirname, 'src/client/index.html'),
             compress: true,
             port: 9000 
-        }
+        },
+        plugins: [
+            new webpack.IgnorePlugin(/^electron$/)
+        ]
     },
     {
         entry: "./src/server/server.ts",
+        target: "node",
         output: {
             filename: "server.js",
             path: __dirname + "/dist"
@@ -56,5 +61,8 @@ module.exports = [
                 { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
             ]
         },
+        plugins: [
+            new webpack.IgnorePlugin(/^electron$/)
+        ]
     }
 ];
