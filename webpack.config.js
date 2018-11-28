@@ -40,6 +40,7 @@ module.exports = [
         entry: "./src/server/server.ts",
         target: "node",
         output: {
+            libraryTarget: 'commonjs',
             filename: "server.js",
             path: __dirname + "/dist"
         },
