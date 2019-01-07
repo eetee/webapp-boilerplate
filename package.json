@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --watch --mode=development",
-    "build": "webpack --watch --mode=production"
+    "dev": "npm run dev:client & npm run dev:server",
+    "dev:client": "webpack --config ./webpack.client.config.js --watch --mode=development",
+    "dev:server": "webpack --config ./webpack.server.config.js --watch --mode=development",
+    "build": "webpack --mode=production"
   },
   "author": "",
   "license": "ISC",
