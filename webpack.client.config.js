@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: "./src/client/index.tsx",
@@ -27,11 +28,15 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
-        index: path.join(__dirname, 'src/client/index.html'),
         compress: true,
-        port: 9000 
+        port: 9000 ,
+        https: true
     },
     plugins: [
-        new webpack.IgnorePlugin(/^electron$/)
+        new webpack.IgnorePlugin(/^electron$/),
+        new HtmlWebpackPlugin({
+            template: './src/client/index.html',
+            inject: 'body'
+        })
     ]
 }
