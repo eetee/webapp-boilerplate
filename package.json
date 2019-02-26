@@ -31,5 +31,9 @@
     "env-var": "^3.4.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }
